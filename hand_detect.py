@@ -39,18 +39,13 @@ def main():
         success, frame = cap.read()
         frame = detector.findHands(frame)
         lmList = detector.findPosition(frame)
-        if len(lmList) != 0:
-            print(lmList[4], lmList[8])
-
+        
         cv2.imshow("Frame", frame)
-        cv2.waitKey(1)
         k = cv2.waitKey(1) & 0xFF
         if k == 27:
             break
     cap.release()
     cv2.destroyAllWindows()
 
-
 if __name__ == "__main__":
     main()
-    
